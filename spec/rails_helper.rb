@@ -13,6 +13,16 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+def login_user
+  user = User.create(first_name: "Lucy", last_name: "Fox", username: "lucyfox", password: "password")
+
+  visit login_path
+
+  fill_in "Username", with: "lucyfox"
+  fill_in "Password", with: "password"
+  click_button "Login"
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

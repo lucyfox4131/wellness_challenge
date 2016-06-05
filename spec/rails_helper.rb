@@ -26,6 +26,18 @@ def login_user
   return user
 end
 
+def login_admin
+  admin = User.create(first_name: "Lucy", last_name: "Fox", username: "lucyfox", password: "password", role: 1)
+
+  visit login_path
+
+  fill_in "Username", with: "lucyfox"
+  fill_in "Password", with: "password"
+  click_button "Login"
+
+  return admin
+end
+
 def create_user_goal
   login_user
 

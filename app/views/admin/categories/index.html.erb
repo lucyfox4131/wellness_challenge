@@ -1,0 +1,7 @@
+<h1 id='page_title'>All Categories</h1>
+
+<ul id="category-titles">
+  <% @categories.each do |category| %>
+  <li><%= link_to category.title, admin_category_path(category) %></li>
+  <% end %>
+</ul>

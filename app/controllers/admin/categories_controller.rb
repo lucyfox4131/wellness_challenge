@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::BaseController
 
   def index
     @categories = Category.all
@@ -44,7 +44,7 @@ class CategoriesController < ApplicationController
     flash[:success] = "Category deleted successfully"
 
 
-    redirect_to categories_path
+    redirect_to admin_categories_path
   end
 
   private

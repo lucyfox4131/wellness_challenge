@@ -2,9 +2,11 @@ require 'rails_helper'
 
 RSpec.feature "Edit a Category", type: :feature do
     scenario "user can edit a category" do
+      # admin = login_admin
+
       c = Category.create(title: "Nutrition")
 
-      visit category_path(c)
+      visit admin_category_path(c)
 
       click_on "Edit Category"
 

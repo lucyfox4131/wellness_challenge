@@ -1,4 +1,10 @@
 class GoalsController < ApplicationController
+
+  def index
+    @user = User.find(params[:user_id])
+    @goals = @user.goals.order(:category_id)
+  end
+
   def new
     @user = User.find(params[:user_id])
     @goal = Goal.new

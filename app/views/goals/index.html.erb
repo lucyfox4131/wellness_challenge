@@ -1,0 +1,5 @@
+<div id="category-goals">
+  <% @goals.each do |goal| %>
+    <%= goal.category %> : <%= link_to goal.description, user_goal_path(@user, goal) %>
+  <% end %>
+</div>

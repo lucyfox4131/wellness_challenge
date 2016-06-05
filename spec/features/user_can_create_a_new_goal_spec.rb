@@ -8,7 +8,6 @@ RSpec.feature "User creates a Goal", type: :feature do
     click_link "Make a New Goal"
 
     fill_in "Description", with: "Eat a healthy breakfast"
-    #drop down to chose a category
     find('#select_category').click
 
     click_button "Create Goal"

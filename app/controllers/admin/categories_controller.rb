@@ -12,7 +12,7 @@ class Admin::CategoriesController < Admin::BaseController
     @category = Category.new(category_params)
     if @category.save
       flash[:success] = "New category created successfullly."
-      redirect_to @category
+      redirect_to admin_category_path(@category)
     else
       flash.now[:error] = @category.errors.full_messages.join(", ")
       render :new
@@ -31,7 +31,7 @@ class Admin::CategoriesController < Admin::BaseController
     @category = Category.find(params[:id])
     if @category.update(category_params)
       flash[:success] = "Category edited successfullly"
-      redirect_to @category
+      redirect_to admin_category_path(@category)
     else
       flash[:error] = @category.errors.full_messages.join(", ")
       render :edit

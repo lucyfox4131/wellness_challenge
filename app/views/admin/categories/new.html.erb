@@ -1,4 +1,6 @@
-<%= form_for(@category) do |f| %>
+<h1>New Category</h1>
+
+<%= form_for([:admin, @category]) do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %><br>
   <%= f.submit %>

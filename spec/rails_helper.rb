@@ -13,6 +13,31 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+def login_user
+  user = User.create(first_name: "Lucy", last_name: "Fox", username: "lucyfox", password: "password")
+
+  visit login_path
+
+  fill_in "Username", with: "lucyfox"
+  fill_in "Password", with: "password"
+  click_button "Login"
+
+  return user
+end
+
+def create_user_goal
+  login_user
+
+  category = Category.create(title: "Nutrition")
+
+  click_link "Make a New Goal"
+
+  fill_in "Description", with: "Eat a healthy breakfast"
+  find('#select_category').click
+
+  click_button "Create Goal"
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -37,6 +62,27 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+  config.use_transactional_fixtures = false
+  config.before :suite do
+    DatabaseCleaner.clean_with :truncation
+  end
+
+  config.before :each do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each, js: true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before :each do
+    DatabaseCleaner.start
+  end
+
+  config.after :each do
+    DatabaseCleaner.clean
+  end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

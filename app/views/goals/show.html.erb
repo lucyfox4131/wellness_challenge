@@ -1,5 +1,5 @@
 <div id='goal-show'>
-  <%= @goal.category %>: <%= @goal.description %>
+  <%= @goal.category.title %>: <%= @goal.description %>
   <%= link_to "Edit", edit_user_goal_path(@user, @goal) %>
   <%= link_to "Delete", user_goal_path(@user, @goal), method: :delete %>
 </div>

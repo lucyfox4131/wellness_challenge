@@ -1,4 +1,9 @@
 class CategoriesController < ApplicationController
+
+  def index
+    @categories = Category.all
+  end
+
   def new
     @category = Category.new
   end
@@ -31,6 +36,15 @@ class CategoriesController < ApplicationController
       flash[:error] = @category.errors.full_messages.join(", ")
       render :edit
     end
+  end
+
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    flash[:success] = "Category deleted successfully"
+
+
+    redirect_to categories_path
   end
 
   private

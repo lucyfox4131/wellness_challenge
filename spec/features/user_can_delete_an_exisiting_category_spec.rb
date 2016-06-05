@@ -7,9 +7,9 @@ RSpec.feature "Deleting a Category", type: :feature do
 
       visit category_path(c)
 
-      click_on "Delete Category"
-      
-      expect(page).to have_content("Health")
-      expect(page).to have_content("New category created successfullly.")
+      click_on "Delete"
+
+      expect(page).to have_content("Nutrition")
+      expect(page).to have_content("Category deleted successfully")
     end
 end

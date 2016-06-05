@@ -13,6 +13,31 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+def login_user
+  user = User.create(first_name: "Lucy", last_name: "Fox", username: "lucyfox", password: "password")
+
+  visit login_path
+
+  fill_in "Username", with: "lucyfox"
+  fill_in "Password", with: "password"
+  click_button "Login"
+
+  return user
+end
+
+def create_user_goal
+  login_user
+
+  category = Category.create(title: "Nutrition")
+
+  click_link "Make a New Goal"
+
+  fill_in "Description", with: "Eat a healthy breakfast"
+  find('#select_category').click
+
+  click_button "Create Goal"
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

@@ -1,0 +1,13 @@
+<div id="user-details">
+  <h1><%= @user.first_name %> <%= @user.last_name %></h1><br>
+  <h3>Username: <%= @user.username %></h3>
+</div>
+
+<div id="user-goals">
+  <h3><%= @user.first_name %>'s Goals:</h3><br>
+  <ul>
+    <% @user.goals.each do |goal| %>
+      <li><%= goal.description %></li>
+    <% end %>
+  </ul>
+</div>

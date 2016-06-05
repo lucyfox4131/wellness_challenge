@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :categories
+    resources :users, only: [:index, :show]
   end
 
   resources :users, only: [:new, :create, :show] do

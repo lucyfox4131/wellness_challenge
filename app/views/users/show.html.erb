@@ -1,2 +1,6 @@
 <%= link_to "Make a New Goal", new_user_goal_path(@user) %>
 <%= link_to "All Goals", user_goals_path(@user) %>
+
+<% if @user.admin? %>
+  <%= link_to "All Users", admin_users_path %>
+<% end %>

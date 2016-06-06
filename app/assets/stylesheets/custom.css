@@ -76,3 +76,16 @@
 
   .has-events {}
 }
+
+.wellness-dashboard {
+  background-image: url('/balance.jpg');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  background-position: 70% center;
+
+}
+
+.login-screen {
+  color: #00FFFF;
+}

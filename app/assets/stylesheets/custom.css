@@ -86,6 +86,23 @@
 
 }
 
-.login-screen {
-  color: #00FFFF;
+.options-box {
+  color: #320458;
+  /*border: 1px solid black;*/
+  position: absolute;
+  left: 8%;
+  right: initial;
+  background-color: transparent;
+  margin: 6% auto;
+  width: 320px;
+  max-width: 330px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 25px;
+}
+
+.login-button {
+  background-color: rgba(0,0,0, 0.5);
+  color: white;
 }

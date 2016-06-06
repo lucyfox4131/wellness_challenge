@@ -1,5 +1,7 @@
-<h1><%= @scheduled_goal.goal.description %></h1>
-  <h3>Scheduled For: <%= @scheduled_goal.start_time %></h3>
+<div class="options-box">
+  <h3><%= @scheduled_goal.goal.description %></h3>
+  <h5>Scheduled For: <%= @scheduled_goal.start_time %></h5>
 
-<%= link_to "Edit", edit_user_scheduled_goal_path(@user, @scheduled_goal) %>
-<%= link_to "Delete", user_scheduled_goal_path(@user, @scheduled_goal), method: :delete %>
+  <%= link_to "Edit", edit_user_scheduled_goal_path(@user, @scheduled_goal) %>
+  <%= link_to "Delete", user_scheduled_goal_path(@user, @scheduled_goal), method: :delete %>
+</div>

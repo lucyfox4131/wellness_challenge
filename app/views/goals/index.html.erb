@@ -1,7 +1,9 @@
-<div id="category-goals">
-  <% @goals.each do |goal| %>
-    <%= goal.category if goal.category %> : <%= link_to goal.description, user_goal_path(@user, goal) %>
-  <% end %>
-</div>
+<div class="options-box">
+  <div id="category-goals">
+    <% @goals.each do |goal| %>
+    <%= goal.category.title if goal.category %> : <%= link_to goal.description, user_goal_path(@user, goal) %>
+    <% end %>
+  </div>
 
-<%= link_to "Schedule Goal", new_user_scheduled_goal_path(@user) %>
+  <%= link_to "Schedule Goal", new_user_scheduled_goal_path(@user) %>
+</div>

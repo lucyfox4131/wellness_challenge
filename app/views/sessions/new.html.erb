@@ -1,16 +1,18 @@
-<div class="login-screen container">
-  <% if !current_user %>
-  <h2>Login</h2>
+<div class="options-box">
+    <h4>Login to see your goals and progress</h4><br>
 
-  <%= form_for(:session, url: login_path) do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.text_field :password %>
-  <%= f.submit "Login" %>
-  <% end  %>
+    <% if !current_user %>
+    <h5>Login</h5>
 
-  <h2>Or Create a new Account</h2>
-  <%= link_to "Create Account", new_user_path %>
-  <% end %>
+    <%= form_for(:session, url: login_path) do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %><br>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br>
+    <span class="login-button"><%= f.submit "Login" %></span>
+    <% end %>
+
+    <h5>Or Create a new Account</h5>
+    <%= link_to "Create Account", new_user_path %>
+    <% end %>
 </div>

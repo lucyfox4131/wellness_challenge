@@ -1,4 +1,6 @@
-<%= form_for([@user, @goal]) do |f| %>
+<div class="options-box">
+  <h3>Edit Goal</h3>
+  <%= form_for([@user, @goal]) do |f| %>
   <%= f.label :description %>
   <%= f.text_area :description %><br>
   <div id="select_category">
@@ -6,4 +8,5 @@
     <%= f.collection_select(:category_id, Category.all, :id, :title) %><br>
   </div>
   <%= f.submit %>
-<% end %>
+  <% end %>
+</div>

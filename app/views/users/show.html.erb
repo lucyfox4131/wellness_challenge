@@ -1,7 +1,9 @@
-<%= link_to "Make a New Goal", new_user_goal_path(@user) %>
-<%= link_to "All Goals", user_goals_path(@user) %>
+<div class="options-box">
+  <%= link_to "Make a New Goal", new_user_goal_path(@user) %><br>
+  <%= link_to "All Goals", user_goals_path(@user) %><br>
 
-<% if @user.admin? %>
-  <%= link_to "All Users", admin_users_path %>
-  <%= link_to "All Categories", admin_categories_path %>
-<% end %>
+  <% if @user.admin? %>
+  <%= link_to "All Users", admin_users_path %><br>
+  <%= link_to "All Categories", admin_categories_path %><br>
+  <% end %>
+</div>

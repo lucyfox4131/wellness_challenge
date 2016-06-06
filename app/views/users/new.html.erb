@@ -1,6 +1,7 @@
-<h1>Create a New Account</h1>
+<div class="options-box">
+  <h1>Create a New Account</h1>
 
-<%= form_for(@user) do |f| %>
+  <%= form_for(@user) do |f| %>
   <%= f.label :first_name %>
   <%= f.text_field :first_name %><br>
   <%= f.label :last_name %>
@@ -10,4 +11,5 @@
   <%= f.label :password %>
   <%= f.password_field :password %><br>
   <%= f.submit "Create Account" %>
-<% end %>
+  <% end %>
+</div>

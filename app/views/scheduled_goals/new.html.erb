@@ -1,0 +1,11 @@
+<div class="options-box">
+  <%= form_for([@user, @scheduled_goal]) do |f| %>
+  <%= f.label :goals %>
+  <span id="goals"><%= f.collection_select(:goal_id, @goals, :id, :description) %></span><br>
+  <div id="start_time">
+    <%= f.label :start_time %>
+    <%= f.date_field :start_time %>
+  </div>
+  <%= f.submit "Schedule Goal" %>
+  <% end %>
+</div>

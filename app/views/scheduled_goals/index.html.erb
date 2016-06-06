@@ -1,0 +1,5 @@
+<div class="options-box">
+  <% @scheduled_goals.each do |schgoal| %>
+  <%= schgoal.goal.description %> on <%= schgoal.start_time %>
+  <% end %>
+</div>

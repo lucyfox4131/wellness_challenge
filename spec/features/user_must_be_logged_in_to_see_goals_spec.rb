@@ -6,7 +6,7 @@ RSpec.feature "User not logged in", type: :feature do
 
     visit user_path(user)
 
-    expect(page).to have_content("Login to see your goals and progress.")
+    expect(page).to have_content("Login to see your goals and progress")
     expect(page).to_not have_content("Welcome, Bob")
   end
 end

@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    render file: '/public/404' unless @user
+    redirect_to '/login' unless @user
   end
 
   private

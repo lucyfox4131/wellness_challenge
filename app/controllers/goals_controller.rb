@@ -1,5 +1,19 @@
 class GoalsController < ApplicationController
 
+ # a way to dry up some of your code is to make a before action for your goals controller.
+ # so if we say that in order for you to create a goal you need to be a registered user (which you've done)
+ # you can make a method that will essentially link everything to the current user
+ #so now in your forms and and anyting in the view you can just call in the current user. 
+
+# ------------------------
+   #before_action :require_authenticated_user
+
+    #def require_authenticated_user
+    #  redirect_to login_path flash[:login] ="Must Login" unless current_user
+    #end
+
+    #something along these lines!
+# -------------------------
   def index
     @user = current_user
     @goals = @user.goals.order(:category_id)
@@ -32,6 +46,7 @@ class GoalsController < ApplicationController
         flash[:success] = "Goal updated successfully"
 
         redirect_to user_goal_path(@user, @goal)
+        #so like here you can just redirect to curent user
       else
       end
     end

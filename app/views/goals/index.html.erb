@@ -3,3 +3,5 @@
     <%= goal.category %> : <%= link_to goal.description, user_goal_path(@user, goal) %>
   <% end %>
 </div>
+
+<%= link_to "Schedule Goal", new_user_scheduled_goal_path(@user) %>

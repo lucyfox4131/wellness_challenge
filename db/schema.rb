@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605194836) do
+ActiveRecord::Schema.define(version: 20160606043546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 20160605194836) do
   add_index "goals", ["category_id"], name: "index_goals_on_category_id", using: :btree
   add_index "goals", ["user_id"], name: "index_goals_on_user_id", using: :btree
 
+  create_table "scheduled_goals", force: :cascade do |t|
+    t.integer  "goal_id"
+    t.datetime "start_time"
+    t.boolean  "achieved",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "user_id"
+  end
+
+  add_index "scheduled_goals", ["goal_id"], name: "index_scheduled_goals_on_goal_id", using: :btree
+  add_index "scheduled_goals", ["user_id"], name: "index_scheduled_goals_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -45,4 +57,6 @@ ActiveRecord::Schema.define(version: 20160605194836) do
 
   add_foreign_key "goals", "categories"
   add_foreign_key "goals", "users"
+  add_foreign_key "scheduled_goals", "goals"
+  add_foreign_key "scheduled_goals", "users"
 end

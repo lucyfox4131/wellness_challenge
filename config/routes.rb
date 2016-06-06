@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show] do
     resources :goals
+    resources :scheduled_goals
   end
 
   get '/login', to: 'sessions#new'

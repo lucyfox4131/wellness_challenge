@@ -1,0 +1,13 @@
+<%= form_for([@user, @scheduled_goal]) do |f| %>
+  <%= f.label :goals %>
+  <%= f.select(:goal_id) do %>
+    <%  @goals.each do |goal| %>
+      <%= content_tag(:div, goal.description, id: "goals") %>
+    <% end %>
+  <% end %>
+  <div id="start_time">
+    <%= f.label :start_time %>
+    <%= f.date_field :start_time %>
+  </div>
+  <%= f.submit "Schedule Goal" %>
+<% end %>

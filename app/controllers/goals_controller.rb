@@ -1,17 +1,17 @@
 class GoalsController < ApplicationController
 
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
     @goals = @user.goals.order(:category_id)
   end
 
   def new
-    @user = User.find(params[:user_id])
+    @user = current_user
     @goal = Goal.new
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @user = current_user
     @goal = @user.goals.new(goal_params)
     if @goal.save
       flash[:success] = "Goal created successfully"
@@ -21,12 +21,12 @@ class GoalsController < ApplicationController
     end
 
     def edit
-      @user = User.find(params[:user_id])
+      @user = current_user
       @goal = Goal.find(params[:id])
     end
 
     def update
-      @user = User.find(params[:user_id])
+      @user = current_user
       @goal = Goal.find(params[:id])
       if @goal.update(goal_params)
         flash[:success] = "Goal updated successfully"
@@ -37,7 +37,7 @@ class GoalsController < ApplicationController
     end
 
     def destroy
-      @user = User.find(params[:user_id])
+      @user = current_user
       @goal = Goal.find(params[:id])
       @goal.destroy
 
@@ -48,7 +48,7 @@ class GoalsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
+    @user = current_user
     @goal = Goal.find(params[:id])
   end
 

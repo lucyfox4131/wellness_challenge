@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-
       redirect_to @user
     else
       #re render the new view if validations don't pass
@@ -17,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    render file: '/public/404' unless @user
   end
 
   private
